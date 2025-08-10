@@ -1,0 +1,56 @@
+
+import java.util.LinkedHashSet;
+import java.util.SequencedSet;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author Yeheni
+ */
+import java.util.LinkedHashSet;
+import java.util.SequencedSet;
+
+public class FruitSetExample {
+    public static void main(String[] args) {
+        // Create a LinkedHashSet to maintain insertion order
+        LinkedHashSet<String> fruits = new LinkedHashSet<>();
+        
+        // Add fruits to the set
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Orange");
+        
+        System.out.println("Original LinkedHashSet: " + fruits);
+        
+        // Use as SequencedSet (Java 21+ feature)
+        SequencedSet<String> sequencedFruits = fruits;
+        
+        // Get first and last elements
+        System.out.println("First fruit: " + sequencedFruits.getFirst());
+        System.out.println("Last fruit: " + sequencedFruits.getLast());
+        
+        // Add elements at beginning and end
+        sequencedFruits.addFirst("Pineapple");
+        sequencedFruits.addLast("Grapes");
+        
+        System.out.println("After additions: " + sequencedFruits);
+        
+        // Remove first and last elements
+        String firstRemoved = sequencedFruits.removeFirst();
+        String lastRemoved = sequencedFruits.removeLast();
+        
+        System.out.println("Removed first: " + firstRemoved);
+        System.out.println("Removed last: " + lastRemoved);
+        
+        System.out.println("Final set: " + sequencedFruits);
+        
+        // Get reversed view
+        SequencedSet<String> reversedFruits = sequencedFruits.reversed();
+        System.out.println("Reversed view: " + reversedFruits);
+    }
+}
